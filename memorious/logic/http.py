@@ -21,7 +21,7 @@ from memorious.logic.mime import NON_HTML
 from memorious.exc import ParseError
 from memorious.helpers.ua import UserAgent
 from memorious.helpers.dates import parse_date
-from memorious.util import random_filename
+from memorious.util import random_filename, http_filename, file_filename
 
 
 class ContextHttp(object):
@@ -171,7 +171,11 @@ class ContextHttpResponse(object):
                                                 temp_path=temp_path)
             return self._file_path
         if self.response is not None:
-            self._file_path = random_filename(temp_path)
+#            self._file_path = random_filename(temp_path)
+            if self.content_type = 'text/html':
+                self._file_path = html_filename(temp_path, self.url)
+            else:
+                self._file_path = file_filename(temp_path, self.url)
             content_hash = sha1()
             with open(self._file_path, 'wb') as fh:
                 for chunk in self.response.iter_content(chunk_size=8192):

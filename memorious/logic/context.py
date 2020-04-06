@@ -13,7 +13,7 @@ from memorious.core import datastore
 from memorious.model import Event, Queue, Crawl
 from memorious.logic.http import ContextHttp
 from memorious.logic.check import ContextCheck
-from memorious.util import random_filename
+from memorious.util import random_filename, http_filename, file_filename
 from memorious.exc import QueueTooBigError
 
 
@@ -150,7 +150,14 @@ class Context(object):
     def store_data(self, data, encoding='utf-8'):
         """Put the given content into a file, possibly encoding it as UTF-8
         in the process."""
-        path = random_filename(self.work_path)
+        url = data.get('url')
+        headers = data.get('headers')
+        content_type = headers.get('content-type')
+        if content_type == 'text/http':
+            path = http_filename(self.work_path, url)
+        else:
+            path = file_filename(self.work_path, url)
+#        path = random_filename(self.work_path)
         try:
             with open(path, 'wb') as fh:
                 if isinstance(data, str):

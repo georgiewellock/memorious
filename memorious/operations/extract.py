@@ -80,7 +80,14 @@ def extract(context, data):
     with context.http.rehash(data) as result:
         file_path = result.file_path
         content_type = result.content_type
-        extract_dir = random_filename(context.work_path)
+        url = data.get('url')
+        headers = data.get('headers')
+        content_type = headers.get('content-type')
+        if content_type == 'text/http':
+            path = http_filename(context.work_path, url)
+        else:
+            path = file_filename(context.work_path, url)
+#        extract_dir = random_filename(context.work_path)
         if content_type in ZIP_MIME_TYPES:
             extracted_files = extract_zip(file_path, extract_dir, context)
         elif content_type in TAR_MIME_TYPES:
