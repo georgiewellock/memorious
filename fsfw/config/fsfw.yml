@@ -1,7 +1,7 @@
 # Scraper for the OCCRP web site.
 # The goal is not to download all HTML, but only PDFs & other documents
 # linked from the page as proof.
-name: fsfw_fname_test_2
+name: fsfw
 
 # A title for display in the UI:
 description: 'foundation sfw test'
