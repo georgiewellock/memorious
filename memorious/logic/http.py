@@ -21,8 +21,7 @@ from memorious.logic.mime import NON_HTML
 from memorious.exc import ParseError
 from memorious.helpers.ua import UserAgent
 from memorious.helpers.dates import parse_date
-from memorious.util import random_filename, http_filename, file_filename
-
+from memorious.util import *
 
 class ContextHttp(object):
     STATE_SESSION = '_http'

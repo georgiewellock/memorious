@@ -3,7 +3,7 @@ import os
 import tarfile
 import subprocess
 
-from memorious.util import random_filename
+from memorious.util import *
 
 ZIP_MIME_TYPES = [
     'application/zip',
