@@ -172,7 +172,7 @@ class ContextHttpResponse(object):
             return self._file_path
         if self.response is not None:
 #            self._file_path = random_filename(temp_path)
-            if self.content_type = 'text/html':
+            if self.content_type == 'text/html':
                 self._file_path = html_filename(temp_path, self.url)
             else:
                 self._file_path = file_filename(temp_path, self.url)
