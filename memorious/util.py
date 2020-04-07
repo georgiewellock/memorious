@@ -10,7 +10,7 @@ def random_filename(path=None):
         filename = os.path.join(path, filename)
     return filename
 
-def html_filename(path=None, url):
+def html_filename(url, path=None):
     """ Replace special characters in url and create filename using full url"""
     url = str(url)
     url = url.replace('/', '_')
@@ -20,7 +20,7 @@ def html_filename(path=None, url):
         filename = os.path.join(path, filename)
     return filename
 
-def file_filename(path=None, url):
+def file_filename(url, path=None):
     url_parts = str(url).split('/')
     filename = url_parts[-1]
     if path is not None:

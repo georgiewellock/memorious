@@ -1,4 +1,4 @@
-FROM alephdata/memorious:latest
+FROM georgiewellock/memorious:latest
 
 COPY setup.py /crawlers/
 COPY src /crawlers/src

@@ -84,9 +84,9 @@ def extract(context, data):
         headers = data.get('headers')
         content_type = headers.get('content-type')
         if content_type == 'text/http':
-            path = http_filename(context.work_path, url)
+            path = http_filename(url, context.work_path)
         else:
-            path = file_filename(context.work_path, url)
+            path = file_filename(url, context.work_path)
 #        extract_dir = random_filename(context.work_path)
         if content_type in ZIP_MIME_TYPES:
             extracted_files = extract_zip(file_path, extract_dir, context)

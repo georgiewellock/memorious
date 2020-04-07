@@ -13,7 +13,7 @@ setup(
     keywords='',
     author='Organized Crime and Corruption Reporting Project',
     author_email='data@occrp.org',
-    url='http://github.com/alephdata/memorious',
+    url='http://github.com/georgiewellock/memorious',
     license='MIT',
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     namespace_packages=[],

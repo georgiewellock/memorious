@@ -173,9 +173,9 @@ class ContextHttpResponse(object):
         if self.response is not None:
 #            self._file_path = random_filename(temp_path)
             if self.content_type == 'text/html':
-                self._file_path = html_filename(temp_path, self.url)
+                self._file_path = html_filename(self.url, temp_path)
             else:
-                self._file_path = file_filename(temp_path, self.url)
+                self._file_path = file_filename(self.url, temp_path)
             content_hash = sha1()
             with open(self._file_path, 'wb') as fh:
                 for chunk in self.response.iter_content(chunk_size=8192):

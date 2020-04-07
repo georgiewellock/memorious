@@ -154,9 +154,9 @@ class Context(object):
         headers = data.get('headers')
         content_type = headers.get('content-type')
         if content_type == 'text/http':
-            path = http_filename(self.work_path, url)
+            path = http_filename(url, self.work_path)
         else:
-            path = file_filename(self.work_path, url)
+            path = file_filename(url, self.work_path)
 #        path = random_filename(self.work_path)
         try:
             with open(path, 'wb') as fh:
